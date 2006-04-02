@@ -1,0 +1,98 @@
+--- monobook/main.css	2006-03-25 12:30:02.000000000 -0500
++++ lilug/main.css	2006-03-25 12:30:02.000000000 -0500
+@@ -1,5 +1,5 @@
+ /*
+-** MediaWiki 'monobook' style sheet for CSS2-capable browsers.
++** MediaWiki 'lilug' style sheet for CSS2-capable browsers.
+ ** Copyright Gabriel Wicke - http://wikidev.net/
+ ** License: GPL (http://www.gnu.org/copyleft/gpl.html)
+ **
+@@ -15,17 +15,66 @@
+     margin: 0 0 .6em -12.2em;
+     padding: 0;
+ }
++table#topnav {
++    width: 480px;
++    margin-right: auto;
++    margin-left: auto;
++    padding: 0em 1em 0em 1em;
++    background: #ffffe0;
++    color: black;
++    border: thin solid black;
++}
++table#topnav td {
++    text-align: center;
++    width: 20%;
++}
++div#topnav ul li {
++    font-weight: bold;
++    padding-right: 1em;
++    padding-left: 1em;
++    list-style: none;
++    display: inline;
++}
+ #content {
+-    margin: 2.8em 0 0 12.2em;
++    margin: 2px 2em 2em 2em;
+     padding: 0 1em 1.5em 1em;
+-    background: white;
++    background: #ffffe0;
+     color: black;
+-    border: 1px solid #aaa;
+-    border-right: none;
+     line-height: 1.5em;
+     position: relative;
+     z-index: 2;
++    border: thin solid black;
++}
++
++#header {
++    height: 229px;
++    width: 525px;
++    margin-left: auto;
++    margin-right: auto;
++}
++
++table#meta {
++    width: 45em;
++    margin-left: auto;
++    margin-right: auto;
++    text-align: center;
++    background-color: #ffffe0;
++    border: thin solid black;
+ }
++
++table#meta tr#toprow td {
++    vertical-align: top;
++    width: 33%;
++}
++
++div.wiki_links,
++div#search
++{
++    text-align: center;
++    padding-bottom: .5em;
++    padding-top: .5em;
++}
++
+ #column-one {
+     padding-top: 160px;
+ }
+@@ -39,7 +88,7 @@
+ 
+ body {
+     font: x-small sans-serif;
+-    background: #f9f9f9 url(headbg.jpg) 0 0 no-repeat;
++    background: #939cc9 url(lilug_gradient.png) 0 0 repeat-x;
+     color: black;
+     margin: 0;
+     padding: 0;
+@@ -114,7 +163,7 @@
+     margin: 0;
+     padding-top: .5em;
+     padding-bottom: .17em;
+-    border-bottom: 1px solid #aaa;
++/*    border-bottom: 1px solid #aaa; */
+ }
+ h1 { font-size: 188%; }
+ h2 { font-size: 150%; }
