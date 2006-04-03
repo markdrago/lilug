@@ -142,9 +142,9 @@ function lilug_irc_meeting_time() {
 					     $minutes_of_meeting);
 
     #check for conflict with regular meeting
-    $meeting_date = idate("d", $meeting_time);
-    $meeting_month = idate("m", $meeting_time);
-    $meeting_year = idate("Y", $meeting_time);
+    $meeting_date = intval(date("d", $meeting_time));
+    $meeting_month = intval(date("m", $meeting_time));
+    $meeting_year = intval(date("Y", $meeting_time));
 
     #constants that define the day of conflict (regular lilug meetings)
     $reg_week_of_meeting = 2;    #_second_ tuesday
@@ -157,9 +157,9 @@ function lilug_irc_meeting_time() {
 					    $reg_hour_of_meeting,
 					    $reg_minutes_of_meeting);
 
-    $reg_meeting_date = idate("d", $regular_meeting);
-    $reg_meeting_month = idate("m", $regular_meeting);
-    $reg_meeting_year = idate("Y", $regular_meeting);
+    $reg_meeting_date = intval(date("d", $regular_meeting));
+    $reg_meeting_month = intval(date("m", $regular_meeting));
+    $reg_meeting_year = intval(date("Y", $regular_meeting));
 
     if (($meeting_date == $reg_meeting_date) and
 	($meeting_month == $reg_meeting_month) and
@@ -190,12 +190,12 @@ function time_of_monthly_meeting($week_of_meeting, $day_of_meeting,
 
     #use current month if zero is passed in
     if ($month == 0) {
-	$month = idate("m");
+	$month = intval(date("m"));
     }
 
     #use current year if zero is passed in
     if ($year == 0) {
-	$year = idate("Y");
+	$year = intval(date("Y"));
     }
 
     #figure out which direction we'll be moving in
@@ -212,14 +212,14 @@ function time_of_monthly_meeting($week_of_meeting, $day_of_meeting,
         #to figure out the number of days in the month, we need a datetime
         #that exists in that month, so we use the first of the month
 	$first_of_month = mktime(0, 0, 0, $month, 1, $year);
-	$starting_date = idate("t", $first_of_month);
+	$starting_date = intval(date("t", $first_of_month));
     }
 
     #get the unix time of the day we'll be starting from
     $starting_day = mktime(0, 0, 0, $month, $starting_date, $year);
 
     #get the day of the week of the starting_day
-    $day_of_starting_day = idate("w", $starting_day);
+    $day_of_starting_day = intval(date("w", $starting_day));
 
     #find the distance to the meeting day_of_the_week
     if ($day_of_starting_day == $day_of_meeting) {
@@ -274,7 +274,7 @@ function monthly_meeting_time($week_of_meeting, $day_of_meeting,
 
     #check to see if this meeting time has passed already
     if ($meeting_time < (time() - $meeting_length)) {
-	$meeting_month = idate("m", $meeting_time);
+	$meeting_month = intval(date("m", $meeting_time));
 
 	if ($meeting_month == 12) {
 	    $month = 1;
@@ -302,10 +302,10 @@ function next_weekly_meeting_time($starting_time, $day_of_meeting,
     #estimated constant length of meetings
     $length_of_day = 60 * 60 * 24;
 
-    $current_day = idate("w", $starting_time);
-    $current_date = idate("d", $starting_time);
-    $current_month = idate("m", $starting_time);
-    $current_year = idate("Y", $starting_time);
+    $current_day = intval(date("w", $starting_time));
+    $current_date = intval(date("d", $starting_time));
+    $current_month = intval(date("m", $starting_time));
+    $current_year = intval(date("Y", $starting_time));
 
     if ($current_day == $day_of_meeting) {
 	$days_until_meeting = 0;
