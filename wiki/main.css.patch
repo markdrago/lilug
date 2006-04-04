@@ -1,5 +1,5 @@
 --- monobook/main.css	2006-03-25 12:30:02.000000000 -0500
-+++ lilug/main.css	2006-03-25 12:30:02.000000000 -0500
++++ lilug/main.css	2006-04-04 19:28:30.000000000 -0400
 @@ -1,5 +1,5 @@
  /*
 -** MediaWiki 'monobook' style sheet for CSS2-capable browsers.
@@ -7,7 +7,7 @@
  ** Copyright Gabriel Wicke - http://wikidev.net/
  ** License: GPL (http://www.gnu.org/copyleft/gpl.html)
  **
-@@ -15,17 +15,66 @@
+@@ -15,17 +15,71 @@
      margin: 0 0 .6em -12.2em;
      padding: 0;
  }
@@ -33,9 +33,14 @@
 +}
  #content {
 -    margin: 2.8em 0 0 12.2em;
-+    margin: 2px 2em 2em 2em;
++    /* margin: 2px 2em 2em 2em; */
      padding: 0 1em 1.5em 1em;
 -    background: white;
++    width: 650px;
++    margin-left: auto;
++    margin-right: auto;
++    margin-top: 2px;
++    margin-bottom: 2em;
 +    background: #ffffe0;
      color: black;
 -    border: 1px solid #aaa;
@@ -78,7 +83,7 @@
  #column-one {
      padding-top: 160px;
  }
-@@ -39,7 +88,7 @@
+@@ -39,7 +93,7 @@
  
  body {
      font: x-small sans-serif;
@@ -87,7 +92,7 @@
      color: black;
      margin: 0;
      padding: 0;
-@@ -114,7 +163,7 @@
+@@ -114,7 +168,7 @@
      margin: 0;
      padding-top: .5em;
      padding-bottom: .17em;

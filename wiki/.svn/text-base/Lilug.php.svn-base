@@ -76,10 +76,10 @@ class LilugTemplate extends QuickTemplate {
   <body <?php if($this->data['body_ondblclick']) { ?>ondblclick="<?php $this->text('body_ondblclick') ?>"<?php } ?>
         <?php if($this->data['body_onload'    ]) { ?>onload="<?php     $this->text('body_onload')     ?>"<?php } ?>
         <?php if($this->data['nsclass'        ]) { ?>class="<?php      $this->text('nsclass')         ?>"<?php } ?>>
-    <div id="header"><a href="/index.php/Main_Page"><img src="/skins/lilug/lilug_logo.png" /></a></div>    
+    <div id="header" class="noprint"><a href="/index.php/Main_Page"><img src="../skins/lilug/lilug_logo.gif" /></a></div>
     <div id="globalWrapper">
       <div id="column-content">
-        <table id="topnav"><tr>
+        <table id="topnav" class="noprint"><tr>
         <td><a href="/index.php/Main_Page">Home</a></td>
         <td><a href="/index.php/About">About</a></td>
         <td><a href="/index.php/Meetings">Meetings</a></td>
@@ -102,7 +102,7 @@ class LilugTemplate extends QuickTemplate {
 	    <div class="visualClear"></div>
 	  </div>
 	</div>
-      <table id="meta"><tr id="toprow"><td>
+      <table id="meta" class="noprint"><tr id="toprow"><td>
       <div class="wiki_links">
         <?php
         foreach($this->data['content_actions'] as $key => $action) {

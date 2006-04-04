@@ -1,19 +1,19 @@
 K 25
 svn:wc:ra_dav:version-url
 V 27
-/svn/!svn/ver/63/lilug/wiki
+/svn/!svn/ver/64/lilug/wiki
 END
-lilug_logo.png
+lilug_logo.gif
 K 25
 svn:wc:ra_dav:version-url
 V 42
-/svn/!svn/ver/62/lilug/wiki/lilug_logo.png
+/svn/!svn/ver/64/lilug/wiki/lilug_logo.gif
 END
 Lilug.php
 K 25
 svn:wc:ra_dav:version-url
 V 37
-/svn/!svn/ver/63/lilug/wiki/Lilug.php
+/svn/!svn/ver/64/lilug/wiki/Lilug.php
 END
 lilug_ext.php
 K 25
@@ -31,13 +31,13 @@ main.css.patch
 K 25
 svn:wc:ra_dav:version-url
 V 42
-/svn/!svn/ver/62/lilug/wiki/main.css.patch
+/svn/!svn/ver/64/lilug/wiki/main.css.patch
 END
 main.css
 K 25
 svn:wc:ra_dav:version-url
 V 36
-/svn/!svn/ver/62/lilug/wiki/main.css
+/svn/!svn/ver/64/lilug/wiki/main.css
 END
 lilug_gradient.png
 K 25
