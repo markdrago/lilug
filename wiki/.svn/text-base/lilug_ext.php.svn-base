@@ -338,20 +338,18 @@ function get_nice_text_for_time($meeting_time) {
 
 	if ($today["mday"] == $meeting["mday"]) {
 	    if ($meeting["hours"] >= 18) {
-		$text .= "Tonight";
+		$text .= "Tonight, ";
 	    } else {
-		$text .= "Today";
+		$text .= "Today, ";
 	    }
 	} elseif (($today["mday"] + 1) == $meeting["mday"]) {
-	    $text .= "Tomorrow";
+	    $text .= "Tomorrow, ";
+	} else {
+	  $text .= date("l, ", $meeting_time);
 	}
     }
 
-    if ($text == "") {
-	$text .= date("l, F jS", $meeting_time);
-    }
-
-    $text .= " @ " . date("g:ia", $meeting_time);
+    $text .= date("F jS @ g:ia", $meeting_time);
 
     return $text;
 }
