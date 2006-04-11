@@ -16,6 +16,24 @@ require_once('extensions/lilug_ext.php');
 
 Now, the Lilug specific tags like '<meetingdatetime>' and '<nextmeetingdesc>' should start working.
 
-4. If you're making this mediawiki installation for the live site, you should probably copy this README file to somewhere in the mediawiki directory so if/when someone stumbles over this, they'll know what is going on.
+4. Make other changes to the LocalSettings.php file:
 
-5. Congratulate yourself.
+#disable anonymous page edits, but allow anonymous users to create accounts
+$wgGroupPermissions['*'    ]['createaccount']   = true;
+$wgGroupPermissions['*'    ]['read']            = true;
+$wgGroupPermissions['*'    ]['edit']            = false;
+
+#disable anonymous talk pages (IP talk pages)
+$wgDisableAnonTalk = true;
+
+## To enable image uploads, make sure the 'images' directory
+## is writable, then uncomment this:
+$wgEnableUploads = true;
+$wgFileExtensions = array('png', 'gif', 'jpg', 'jpeg', 'ogg', 'sxi', 'sxw', 'odp', 'odt');
+$wgUseImageResize = true;
+$wgUseImageMagick = true;
+$wgImageMagickConvertCommand = "/usr/bin/convert";
+
+5. If you're making this mediawiki installation for the live site, you should probably copy this README file to somewhere in the mediawiki directory so if/when someone stumbles over this, they'll know what is going on.
+
+6. Congratulate yourself.
