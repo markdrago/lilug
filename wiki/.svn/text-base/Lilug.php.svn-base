@@ -76,7 +76,7 @@ class LilugTemplate extends QuickTemplate {
   <body <?php if($this->data['body_ondblclick']) { ?>ondblclick="<?php $this->text('body_ondblclick') ?>"<?php } ?>
         <?php if($this->data['body_onload'    ]) { ?>onload="<?php     $this->text('body_onload')     ?>"<?php } ?>
         <?php if($this->data['nsclass'        ]) { ?>class="<?php      $this->text('nsclass')         ?>"<?php } ?>>
-    <div id="header" class="noprint"><a href="/index.php"><img src="../skins/lilug/lilug_logo.gif" /></a></div>
+    <div id="header" class="noprint"><a href="/index.php"><img src="../skins/lilug/lilug_logo.gif" alt="Lilug Logo" /></a></div>
     <div id="globalWrapper">
       <div id="column-content">
         <table id="topnav" class="noprint"><tr>
@@ -174,6 +174,7 @@ class LilugTemplate extends QuickTemplate {
       </form>
     </div>
     </td></tr></table>
+    </div>
     </div>
     <?php $this->html('reporttime') ?>
   </body>
