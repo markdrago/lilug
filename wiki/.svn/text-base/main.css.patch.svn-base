@@ -1,5 +1,5 @@
---- monobook/main.css	2006-03-25 12:30:02.000000000 -0500
-+++ lilug/main.css	2006-04-04 19:28:30.000000000 -0400
+--- /home/mdrago/public_html/mediawiki-1.8.2/skins/monobook/main.css	2006-10-13 20:06:06.000000000 -0400
++++ /home/mdrago/public_html/mediawiki-1.8.2/skins/lilug/main.css	2006-11-02 22:53:53.000000000 -0500
 @@ -1,5 +1,5 @@
  /*
 -** MediaWiki 'monobook' style sheet for CSS2-capable browsers.
@@ -8,8 +8,8 @@
  ** License: GPL (http://www.gnu.org/copyleft/gpl.html)
  **
 @@ -15,17 +15,71 @@
-     margin: 0 0 .6em -12.2em;
-     padding: 0;
+ 	margin: 0 0 .6em -12.2em;
+ 	padding: 0;
  }
 +table#topnav {
 +    width: 480px;
@@ -32,23 +32,23 @@
 +    display: inline;
 +}
  #content {
--    margin: 2.8em 0 0 12.2em;
-+    /* margin: 2px 2em 2em 2em; */
-     padding: 0 1em 1.5em 1em;
--    background: white;
-+    width: 650px;
-+    margin-left: auto;
-+    margin-right: auto;
-+    margin-top: 2px;
-+    margin-bottom: 2em;
-+    background: #ffffe0;
-     color: black;
--    border: 1px solid #aaa;
--    border-right: none;
-     line-height: 1.5em;
-     position: relative;
-     z-index: 2;
-+    border: thin solid black;
+-	margin: 2.8em 0 0 12.2em;
++	/* margin: 2.8em 0 0 12.2em; */
+ 	padding: 0 1em 1.5em 1em;
+-	background: white;
++	width: 650px;
++	margin-left: auto;
++	margin-right: auto;
++	margin-top: 2px;
++	margin-bottom: 2em;
++	background: #ffffe0;
+ 	color: black;
+-	border: 1px solid #aaa;
+-	border-right: none;
+ 	line-height: 1.5em;
+ 	position: relative;
+ 	z-index: 2;
++	border: thin solid black;
 +}
 +
 +#header {
@@ -56,7 +56,7 @@
 +    width: 525px;
 +    margin-left: auto;
 +    margin-right: auto;
-+}
+ }
 +
 +table#meta {
 +    width: 45em;
@@ -65,7 +65,7 @@
 +    text-align: center;
 +    background-color: #ffffe0;
 +    border: thin solid black;
- }
++}
 +
 +table#meta tr#toprow td {
 +    vertical-align: top;
@@ -81,23 +81,23 @@
 +}
 +
  #column-one {
-     padding-top: 160px;
+ 	padding-top: 160px;
  }
 @@ -39,7 +93,7 @@
  
  body {
-     font: x-small sans-serif;
--    background: #f9f9f9 url(headbg.jpg) 0 0 no-repeat;
-+    background: #939cc9 url(lilug_gradient.png) 0 0 repeat-x;
-     color: black;
-     margin: 0;
-     padding: 0;
-@@ -114,7 +168,7 @@
-     margin: 0;
-     padding-top: .5em;
-     padding-bottom: .17em;
--    border-bottom: 1px solid #aaa;
-+/*    border-bottom: 1px solid #aaa; */
+ 	font: x-small sans-serif;
+-	background: #f9f9f9 url(headbg.jpg) 0 0 no-repeat;
++	background: #939cc9 url(lilug_gradient.png) 0 0 repeat-x;
+ 	color: black;
+ 	margin: 0;
+ 	padding: 0;
+@@ -113,7 +167,7 @@
+ 	margin: 0;
+ 	padding-top: .5em;
+ 	padding-bottom: .17em;
+-	border-bottom: 1px solid #aaa;
++/*	border-bottom: 1px solid #aaa; */
  }
  h1 { font-size: 188%; }
  h2 { font-size: 150%; }
