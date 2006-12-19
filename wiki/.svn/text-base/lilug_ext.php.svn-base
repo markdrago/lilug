@@ -278,7 +278,9 @@ function monthly_meeting_time($week_of_meeting, $day_of_meeting,
 
 	if ($meeting_month == 12) {
 	    $month = 1;
-	    $year++;
+	    $this_year = date("Y", time());
+            $year=++$this_year;
+
 	} else {
 	    $month = $meeting_month + 1;
 	}
@@ -345,8 +347,8 @@ function get_nice_text_for_time($meeting_time) {
 	} elseif (($today["mday"] + 1) == $meeting["mday"]) {
 	    $text .= "Tomorrow, ";
 	} else {
-	  $text .= date("l, ", $meeting_time);
-	}
+	    $text .= date("l, ", $meeting_time);
+        }
     }
 
     $text .= date("F jS @ g:ia", $meeting_time);
