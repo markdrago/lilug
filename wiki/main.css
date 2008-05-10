@@ -36,8 +36,15 @@ div#topnav ul li {
     display: inline;
 }
 #content {
-	/* margin: 2.8em 0 0 12.2em; */
+     /* margin: 2.8em 0 0 12.2em; */
 	padding: 0 1em 1.5em 1em;
+	position: relative;
+	z-index: 2;
+}
+#column-one {
+	padding-top: 160px;
+}
+#content {
 	width: 650px;
 	margin-left: auto;
 	margin-right: auto;
@@ -46,8 +53,6 @@ div#topnav ul li {
 	background: #ffffe0;
 	color: black;
 	line-height: 1.5em;
-	position: relative;
-	z-index: 2;
 	border: thin solid black;
 }
 
@@ -80,9 +85,6 @@ div#search
     padding-top: .5em;
 }
 
-#column-one {
-	padding-top: 160px;
-}
 /* the left column width is specified in class .portlet */
 
 /* Font size:
@@ -115,6 +117,9 @@ body {
 table {
 	font-size: 100%;
 	color: black;
+	/* we don't want the bottom borders of <h2>s to be visible through
+	   floated tables */
+	background-color: white;
 }
 a {
 	text-decoration: none;
@@ -170,15 +175,21 @@ h1, h2, h3, h4, h5, h6 {
 /*	border-bottom: 1px solid #aaa; */
 }
 h1 { font-size: 188%; }
+h1 .editsection { font-size: 53%; }
 h2 { font-size: 150%; }
+h2 .editsection { font-size: 67%; }
 h3, h4, h5, h6 {
 	border-bottom: none;
 	font-weight: bold;
 }
 h3 { font-size: 132%; }
+h3 .editsection { font-size: 76%; font-weight: normal; }
 h4 { font-size: 116%; }
+h4 .editsection { font-size: 86%; font-weight: normal; }
 h5 { font-size: 100%; }
+h5 .editsection { font-weight: normal; }
 h6 { font-size: 80%;  }
+h6 .editsection { font-size: 125%; font-weight: normal; }
 
 ul {
 	line-height: 1.5em;
@@ -273,7 +284,6 @@ pre {
 #siteSub {
 	display: none;
 }
-
 #jump-to-nav {
 	display: none;
 }
@@ -452,6 +462,7 @@ div.floatright, table.floatright {
 div.floatright p { font-style: italic; }
 div.floatleft, table.floatleft {
 	float: left;
+	clear: left;
 	position: relative;
 	margin: 0 .5em .5em 0;
 	border: 0;
@@ -469,7 +480,7 @@ div.thumb {
 	border-color: white;
 	width: auto;
 }
-div.thumb div {
+div.thumbinner {
 	border: 1px solid #ccc;
 	padding: 3px !important;
 	background-color: #f9f9f9;
@@ -477,14 +488,15 @@ div.thumb div {
 	text-align: center;
 	overflow: hidden;
 }
-div.thumb div a img {
+html .thumbimage {
 	border: 1px solid #ccc;
 }
-div.thumb div div.thumbcaption {
+html .thumbcaption {
 	border: none;
 	text-align: left;
 	line-height: 1.4em;
-	padding: .3em 0 .1em 0;
+	padding: 3px !important;
+	font-size: 94%;
 }
 div.magnify {
 	float: right;
@@ -503,19 +515,15 @@ div.tright {
 }
 div.tleft {
 	float: left;
+	clear: left;
 	margin-right: .5em;
 	border-width: .5em 1.4em .8em 0;
 }
-
+img.thumbborder {
+	border: 1px solid #dddddd;
+}
 .hiddenStructure {
 	display: none;
-	speak: none;
-}
-img.tex {
-	vertical-align: middle;
-}
-span.texhtml {
-	font-family: serif;
 }
 
 /*
@@ -595,29 +603,6 @@ div.townBox dl dd {
 }
 
 /*
-** Diff rendering
-*/
-table.diff, td.diff-otitle, td.diff-ntitle {
-	background-color: white;
-}
-td.diff-addedline {
-	background: #cfc;
-	font-size: smaller;
-}
-td.diff-deletedline {
-	background: #ffa;
-	font-size: smaller;
-}
-td.diff-context {
-	background: #eee;
-	font-size: smaller;
-}
-span.diffchange {
-	color: red;
-	font-weight: bold;
-}
-
-/*
 ** keep the whitespace in front of the ^=, hides rule from konqueror
 ** this is css3, the validator doesn't like it when validating as css2
 */
@@ -650,6 +635,32 @@ span.diffchange {
 	background: url(discussionitem_icon.gif) center right no-repeat;
 	padding-right: 18px;
 }
+#bodyContent a.external[href $=".ogg"], #bodyContent a.external[href $=".OGG"],
+#bodyContent a.external[href $=".mid"], #bodyContent a.external[href $=".MID"],
+#bodyContent a.external[href $=".midi"], #bodyContent a.external[href $=".MIDI"],
+#bodyContent a.external[href $=".mp3"], #bodyContent a.external[href $=".MP3"],
+#bodyContent a.external[href $=".wav"], #bodyContent a.external[href $=".WAV"],
+#bodyContent a.external[href $=".wma"], #bodyContent a.external[href $=".WMA"],
+.link-audio {
+	background: url("audio.png") center right no-repeat;
+	padding-right: 13px;
+}
+#bodyContent a.external[href $=".ogm"], #bodyContent a.external[href $=".OGM"],
+#bodyContent a.external[href $=".avi"], #bodyContent a.external[href $=".AVI"],
+#bodyContent a.external[href $=".mpeg"], #bodyContent a.external[href $=".MPEG"],
+#bodyContent a.external[href $=".mpg"], #bodyContent a.external[href $=".MPG"],
+.link-video {
+	background: url("video.png") center right no-repeat;
+	padding-right: 13px;
+}
+#bodyContent a.external[href $=".pdf"], #bodyContent a.external[href $=".PDF"],
+#bodyContent a.external[href *=".pdf#"], #bodyContent a.external[href *=".PDF#"],
+#bodyContent a.external[href *=".pdf?"], #bodyContent a.external[href *=".PDF?"],
+.link-document {
+	background: url("document.png") center right no-repeat;
+	padding-right: 12px;
+}
+
 /* disable interwiki styling */
 #bodyContent a.extiw,
 #bodyContent a.extiw:active {
@@ -739,10 +750,10 @@ special external link styling */
 */
 
 #p-logo {
-	z-index: 3;
-	position: absolute; /*needed to use z-index */
 	top: 0;
 	left: 0;
+	position: absolute; /*needed to use z-index */
+	z-index: 3;
 	height: 155px;
 	width: 12em;
 	overflow: visible;
@@ -759,30 +770,6 @@ special external link styling */
 	background-position: 35% 50% !important;
 	text-decoration: none;
 }
-
-/*
-** the navigation portlet
-*/
-
-#p-navigation {
-	position: relative;
-	z-index: 3;
-}
-
-#p-navigation .pBody {
-	padding-right: 0;
-}
-
-#p-navigation a {
-	display: block;
-}
-
-#p-navigation li.active a, #p-navigation li.active a:hover {
-	text-decoration: none;
-	display: inline;
-	font-weight: bold;
-}
-
 
 /*
 ** Search portlet
@@ -813,31 +800,31 @@ input.searchButton {
 /*
 ** the personal toolbar
 */
-
+#p-personal {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+}
 #p-personal {
 	width: 100%;
 	white-space: nowrap;
 	padding: 0;
 	margin: 0;
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 0;
 	border: none;
 	background: none;
 	overflow: visible;
 	line-height: 1.2em;
 }
-
 #p-personal h5 {
 	display: none;
 }
 #p-personal .portlet,
 #p-personal .pBody {
+	z-index: 0;
 	padding: 0;
 	margin: 0;
 	border: none;
-	z-index: 0;
 	overflow: visible;
 	background: none;
 }
@@ -849,7 +836,6 @@ input.searchButton {
 	padding: 0 2em 0 3em;
 	margin: 0;
 	text-align: right;
-	text-transform: lowercase;
 	list-style: none;
 	z-index: 0;
 	background: none;
@@ -864,9 +850,6 @@ input.searchButton {
 	margin-left: 1em;
 	line-height: 1.2em;
 	background: none;
-}
-#p-personal li.active {
-	font-weight: bold;
 }
 #p-personal li a {
 	text-decoration: none;
@@ -891,7 +874,12 @@ li#pt-login {
 	padding-left: 20px;
 	text-transform: none;
 }
-
+#p-personal ul {
+	text-transform: lowercase;
+}
+#p-personal li.active {
+	font-weight: bold;
+}
 /*
 ** the page-related actions- page/talk, edit etc
 */
@@ -909,9 +897,6 @@ li#pt-login {
 	padding-left: 1em;
 	list-style: none;
 	font-size: 95%;
-}
-#p-cactions .hiddenStructure {
-	display: none;
 }
 #p-cactions ul {
 	list-style: none;
@@ -935,16 +920,15 @@ li#pt-login {
 	color: #002bb8;
 	border: none;
 	padding: 0 .8em .3em;
-	text-decoration: none;
-	text-transform: lowercase;
 	position: relative;
 	z-index: 0;
 	margin: 0;
+	text-decoration: none;
 }
 #p-cactions li.selected a {
 	z-index: 3;
-		background-color: #fff;
 	padding: 0 1em .2em!important;
+	background-color: white;
 }
 #p-cactions .new a {
 	color: #ba0000;
@@ -952,7 +936,7 @@ li#pt-login {
 #p-cactions li a:hover {
 	z-index: 3;
 	text-decoration: none;
-		background-color: #fff;
+	background-color: white;
 }
 #p-cactions h5 {
 	display: none;
@@ -973,6 +957,20 @@ li#ca-talk {
 }
 li#ca-watch, li#ca-unwatch, li#ca-varlang-0, li#ca-print {
 	margin-left: 1.6em;
+}
+#p-cactions .pBody {
+	font-size: 1em;
+	background-color: transparent;
+	color: inherit;
+	border-collapse: inherit;
+	border: 0;
+	padding: 0;
+}
+#p-cactions .hiddenStructure {
+	display: none;
+}
+#p-cactions li a {
+	text-transform: lowercase;
 }
 
 /*
@@ -1006,8 +1004,6 @@ li#ca-watch, li#ca-unwatch, li#ca-varlang-0, li#ca-print {
 	display: inline;
 	margin: 0 1.3em;
 }
-/* hide from incapable browsers */
-head:first-child+body #footer li { white-space: nowrap; }
 #f-poweredbyico, #f-copyrightico {
 	margin: 0 8px;
 	position: relative;
@@ -1030,11 +1026,13 @@ head:first-child+body #footer li { white-space: nowrap; }
 	clear: both;
 }
 #preftoc li {
+	background-color: #f0f0f0;
+	color: #000;
+}
+#preftoc li {
 	margin: 1px -2px 1px 2px;
 	float: left;
 	padding: 2px 0 3px 0;
-	background-color: #f0f0f0;
-	color: #000;
 	border: 1px solid #fff;
 	border-right-color: #716f64;
 	border-bottom: 0;
@@ -1100,11 +1098,9 @@ head:first-child+body #footer li { white-space: nowrap; }
 	display: none;
 }
 div.prefsectiontip {
-	font-size: 95%;
-	margin-top: 0;
-	background-color: #FFC1C1;
-	padding: .2em .7em;
-	clear: both;
+	font-size: x-small;
+	padding: .2em 2em;
+	color: #666;
 }
 .btnSavePrefs {
 	font-weight: bold;
@@ -1142,10 +1138,10 @@ div#userlogin form#userlogin2 h2 {
 	padding-top: 0;
 }
 
-div#userlogin .captcha {
+div#userlogin .captcha,
+div#userloginForm .captcha {
 	border: 1px solid #bbb;
 	padding: 1.5em 2em;
-	width: 400px;
 	background-color: white;
 }
 
@@ -1225,6 +1221,7 @@ div#userlogin .captcha {
 	background-color: #ffa;
 }
 div.patrollink {
+	clear: both;
 	font-size: 75%;
 	text-align: right;
 }
@@ -1247,15 +1244,6 @@ span.updatedmarker {
 	color: black;
 	background-color: #0f0;
 }
-span.newpageletter {
-	font-weight: bold;
-	color: black;
-	background-color: yellow;
-}
-span.minoreditletter {
-	color: black;
-	background-color: #c5ffe6;
-}
 
 table.gallery {
 	border: 1px solid #ccc;
@@ -1273,15 +1261,17 @@ table.gallery td {
 	background-color: #f9f9f9;
 	border: solid 2px white;
 }
-
+/* Keep this temporarily so that cached pages will display right */
 table.gallery td.galleryheader {
-	text-align: center;
+    text-align: center;
+	font-weight: bold;
+}
+table.gallery caption {
 	font-weight: bold;
 }
 
 div.gallerybox {
 	margin: 2px;
-	width:  150px;
 }
 
 div.gallerybox div.thumb {
@@ -1291,6 +1281,7 @@ div.gallerybox div.thumb {
 }
 
 div.gallerytext {
+	overflow: hidden;
 	font-size: 94%;
 	padding: 2px 4px;
 }
@@ -1328,12 +1319,6 @@ span.changedby {
 .editExternallyHelp {
 	font-style: italic;
 	color: gray;
-}
-
-li span.deleted, span.history-deleted {
-	text-decoration: line-through;
-	color: #888;
-	font-style: italic;
 }
 
 .toggle {
@@ -1402,6 +1387,10 @@ ul#filetoc {
 	display: inline;
 	list-style-type: none;
 	padding-right: 2em;
+}
+
+input#wpSummary {
+	width: 80%;
 }
 
 /* @bug 1714 */
@@ -1498,6 +1487,13 @@ div#searchTarget ul li:before {
 	content: "\00BB \0020";
 }
 
+div#searchTargetHide {
+	float:right;
+	border:solid 1px black;
+	background:gainsboro;
+	padding:2px;
+}
+
 div.multipageimagenavbox {
    border: solid 1px silver;
    padding: 4px;
@@ -1520,6 +1516,29 @@ table.multipageimage td {
    text-align: center;
 }
 
+/** Special:Version */
+
+table#sv-ext, table#sv-hooks, table#sv-software {
+	margin: 1em;
+	padding:0em;
+}
+
+#sv-ext td, #sv-hooks td, #sv-software td,
+#sv-ext th, #sv-hooks th, #sv-software th {
+	border: 1px solid #A0A0A0;
+	padding: 0 0.15em 0 0.15em;
+}
+#sv-ext th, #sv-hooks th, #sv-software th {
+	background-color: #F0F0F0;
+	color: black;
+	padding: 0 0.15em 0 0.15em;
+}
+tr.sv-space{
+	height: 0.8em;
+	border:none;
+}
+tr.sv-space td { display: none; }
+
 /*
   Table pager (e.g. Special:Imagelist)
   - remove underlines from the navigation link
@@ -1531,7 +1550,7 @@ table.multipageimage td {
 .TablePager_nav a { text-decoration: none; }
 .TablePager { border-collapse: collapse; }
 .TablePager, .TablePager td, .TablePager th { 
-	border: 0.15em solid #777777;
+	border: 1px solid #aaaaaa;
 	padding: 0 0.15em 0 0.15em;
 }
 .TablePager th { background-color: #eeeeff }
@@ -1542,3 +1561,53 @@ table.multipageimage td {
 .imagelist .TablePager_col_links { background-color: #eeeeff }
 .imagelist .TablePager_col_img_description { white-space: normal }
 .imagelist th.TablePager_sort { background-color: #ccccff }
+
+.templatesUsed { margin-top: 1.5em; }
+
+.mw-summary-preview {
+	margin: 0.1em 0;
+}
+
+/* Convenience links on Special:Ipblocklist */
+p.mw-ipb-conveniencelinks {
+	font-size: 90%;
+	float: right;
+}
+
+/* Friendlier slave lag warnings */
+div.mw-lag-warn-normal,
+div.mw-lag-warn-high {
+	padding: 3px;
+	text-align: center;
+	margin: 3px auto;
+}
+div.mw-lag-warn-normal {
+	border: 1px solid #FFCC66;
+	background-color: #FFFFCC;
+}
+div.mw-lag-warn-high {
+	font-weight: bold;
+	border: 2px solid #FF0033;
+	background-color: #FFCCCC;
+}
+
+/* Recreating-deleted-page/reupload file warning and log entries */
+div#mw-upload-deleted-warn,
+div#mw-recreate-deleted-warn {
+	padding: 3px;
+	margin-bottom: 3px;
+	border: 2px solid #2F6FAB;
+}
+div#mw-upload-deleted-warn ul li,
+div#mw-recreate-deleted-warn ul li {
+	font-size: 90%;
+}
+.MediaTransformError {
+	background-color: #ccc;
+	padding: 0.1em;
+}
+.MediaTransformError td {
+	text-align: center;
+	vertical-align: middle;
+	font-size: 90%;
+}
