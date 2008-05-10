@@ -76,15 +76,15 @@ class LilugTemplate extends QuickTemplate {
   <body <?php if($this->data['body_ondblclick']) { ?>ondblclick="<?php $this->text('body_ondblclick') ?>"<?php } ?>
         <?php if($this->data['body_onload'    ]) { ?>onload="<?php     $this->text('body_onload')     ?>"<?php } ?>
         <?php if($this->data['nsclass'        ]) { ?>class="<?php      $this->text('nsclass')         ?>"<?php } ?>>
-    <div id="header" class="noprint"><a href="/index.php"><img src="../skins/lilug/lilug_logo.gif" alt="Lilug Logo" /></a></div>
+    <div id="header" class="noprint"><a href="/wiki"><img src="/w/skins/lilug/lilug_logo.gif" alt="Lilug Logo" /></a></div>
     <div id="globalWrapper">
       <div id="column-content">
         <table id="topnav" class="noprint"><tr>
-        <td><a href="/index.php">Home</a></td>
-        <td><a href="/index.php/About">About</a></td>
-        <td><a href="/index.php/Meetings">Meetings</a></td>
-        <td><a href="/index.php/Directions">Directions</a></td>
-        <td><a href="/index.php/Mailing_Lists">Mailing Lists</a></td>
+        <td><a href="/wiki">Home</a></td>
+        <td><a href="/wiki/About">About</a></td>
+        <td><a href="/wiki/Meetings">Meetings</a></td>
+        <td><a href="/wiki/Directions">Directions</a></td>
+        <td><a href="/wiki/Mailing_Lists">Mailing Lists</a></td>
         </tr></table>
 	<div id="content">
 	  <a name="top" id="top"></a>
