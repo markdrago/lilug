@@ -45,7 +45,7 @@ function render_meetingdatetime($input, $argv) {
 }
 
 function render_nextmeetingdesc($input, $argv) {
-    global $wgOut;
+    global $wgParser;
     global $wgTitle;
 
     #disable cache for pages using this tag
@@ -91,7 +91,7 @@ function render_nextmeetingdesc($input, $argv) {
 
     $string .= $end_tags;
 
-    return $wgOut->parse($string, false);
+    return $wgParser->recursiveTagParse($string);
 }
 
 #Get the meeting time for different groups depending on when their meetings
