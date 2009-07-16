@@ -16,7 +16,6 @@
 	padding: 0;
 }
 table#topnav {
-    width: 480px;
     margin-right: auto;
     margin-left: auto;
     padding: 0em 1em 0em 1em;
@@ -26,7 +25,7 @@ table#topnav {
 }
 table#topnav td {
     text-align: center;
-    width: 20%;
+    padding: 0px 12px 0px 12px;
 }
 div#topnav ul li {
     font-weight: bold;

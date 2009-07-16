@@ -85,6 +85,7 @@ class LilugTemplate extends QuickTemplate {
         <td><a href="/wiki/Meetings">Meetings</a></td>
         <td><a href="/wiki/Directions">Directions</a></td>
         <td><a href="/wiki/Mailing_Lists">Mailing Lists</a></td>
+        <td><a href="http://jobs.lilug.org/">Jobs</a></td>
         </tr></table>
 	<div id="content">
 	  <a name="top" id="top"></a>
