@@ -82,7 +82,7 @@ function render_nextmeetingdesc($input, $argv) {
     
     #potentially add link title
     if (is_link == true) {
-	if ((isset($input)) and ($input != "")) {
+	if ((isset($input)) && ($input != "")) {
 	    $string .= "|$input";
 	} else {
 	    $string .= "|$group Meeting $year $month";
@@ -161,8 +161,8 @@ function lilug_irc_meeting_time() {
     $reg_meeting_month = intval(date("m", $regular_meeting));
     $reg_meeting_year = intval(date("Y", $regular_meeting));
 
-    if (($meeting_date == $reg_meeting_date) and
-	($meeting_month == $reg_meeting_month) and
+    if (($meeting_date == $reg_meeting_date) &&
+	($meeting_month == $reg_meeting_month) &&
 	($meeting_year == $reg_meeting_year)) {
       #skip to the next week in this case
       $meeting_time = next_weekly_meeting_time(time() + $length_of_week,
@@ -335,7 +335,7 @@ function get_nice_text_for_time($meeting_time) {
     $meeting = getdate($meeting_time);
   
     $text = "";
-    if (($today["year"] == $meeting["year"]) and
+    if (($today["year"] == $meeting["year"]) &&
 	($today["month"] == $meeting["month"])) {
 
 	if ($today["mday"] == $meeting["mday"]) {
