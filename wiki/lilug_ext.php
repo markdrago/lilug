@@ -101,7 +101,7 @@ function get_groups_meeting($group, $month, $year) {
 
     switch ($group) {
     case "lilugirc":
-	if (($month != 0) or ($year != 0)) {
+	if (($month != 0) || ($year != 0)) {
 	    print "ERROR: 'lilugirc' will only get the next meeting time";
 	    return 0;
 	}
@@ -257,7 +257,7 @@ function monthly_meeting_time($week_of_meeting, $day_of_meeting,
 
     #test to see if we want to know when the next meeting is
     $next_meeting = true;
-    if (($month != 0) or ($year != 0)) {
+    if (($month != 0) || ($year != 0)) {
 	$next_meeting = false;
     }
 	
