@@ -15,11 +15,8 @@ function register_lilug() {
 #<meetingdatetime> tag.  It takes the input from the tag and
 #returns the text that should replace the tag.
 function render_meetingdatetime($input, $argv) {
-    global $wgTitle;
-
     #disable cache for pages using this tag
-    wfPurgeSquidServers(array($wgTitle->getInternalURL()));
-    $wgTitle->invalidateCache();
+    $input->disableCache();
 
     #the 'group' attribute is required
     if (!isset($argv["group"])) {
@@ -46,11 +43,9 @@ function render_meetingdatetime($input, $argv) {
 
 function render_nextmeetingdesc($input, $argv) {
     global $wgParser;
-    global $wgTitle;
 
     #disable cache for pages using this tag
-    wfPurgeSquidServers(array($wgTitle->getInternalURL()));
-    $wgTitle->invalidateCache();
+    $input->disableCache();
 
     #the 'group' attribute is required
     if (!isset($argv["group"])) {
