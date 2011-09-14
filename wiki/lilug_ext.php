@@ -16,7 +16,7 @@ function register_lilug() {
 #returns the text that should replace the tag.
 function render_meetingdatetime($input, $argv) {
     #disable cache for pages using this tag
-    $input->disableCache();
+    #$input->disableCache();
 
     #the 'group' attribute is required
     if (!isset($argv["group"])) {
@@ -45,7 +45,7 @@ function render_nextmeetingdesc($input, $argv) {
     global $wgParser;
 
     #disable cache for pages using this tag
-    $input->disableCache();
+    #$input->disableCache();
 
     #the 'group' attribute is required
     if (!isset($argv["group"])) {
